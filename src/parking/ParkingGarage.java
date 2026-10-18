@@ -32,12 +32,9 @@ public class ParkingGarage {
 
     public void cancel(Vehicle vehicle, int hours, PaymentMethod method) {
         double amount = fee(vehicle, hours);
-        if (method instanceof CashPayment) {            // cash cannot be refunded
-            System.out.println("Refund " + amount + " MAD at the desk for "
-                    + vehicle.getPlate());
-        } else {
-            method.refund(amount);
-        }
+        System.out.println("Refund " + amount + " MAD at the desk for "
+                + vehicle.getPlate());
+        method.refund(amount);
         total -= amount;
     }
 
